@@ -5,7 +5,7 @@
 <div class="container">
     <a href="/books/create">Create New book</a>
     <div class="row">
-        @foreach($books as $book)
+        @foreach($books ?? '' as $book)
         <div class="col-6">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">

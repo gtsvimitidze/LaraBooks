@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form action="/books" method="POST">
+        <form action="/books" method="POST" enctype="multipart/form-data">
             @csrf
             {{-- @method('PATCH') --}}
             <div class="form-group row">
@@ -12,12 +12,13 @@
                 </div>
             </div>
 
-            <div class="form-group row">
-                <label for="release_date" class="col-sm-2 col-form-label">Image</label>
+            <input type="hidden" name="image_url" value="none">
+            {{-- <div class="form-group row">
+                <label for="image_url" class="col-sm-2 col-form-label">Image</label>
                 <div class="col-sm-10">
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file" name="image_url" class="form-control-file" id="image_url">
                 </div>
-            </div>
+            </div> --}}
 
             <div class="form-group row">
                 <label for="description" class="col-sm-2 col-form-label">description</label>
@@ -46,7 +47,7 @@
                 </div>
             </div>
 
-            <input type="hidden" name="image_url" value="nonne">
+            {{-- <input type="hidden" name="image_url" value="nonne"> --}}
         </form>
         
         @if($errors->any())
