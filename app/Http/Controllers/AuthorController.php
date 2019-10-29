@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
+use App\Author;
 
-class AuthorControler extends Controller
+class AuthorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class AuthorControler extends Controller
      */
     public function index()
     {
-        //
+        $authors = Author::all();
+        return view('authors.index', compact('authors'));
     }
 
     /**
@@ -23,7 +26,7 @@ class AuthorControler extends Controller
      */
     public function create()
     {
-        //
+        return view('authors.create');
     }
 
     /**
@@ -34,7 +37,17 @@ class AuthorControler extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = request()->validate([
+            'name' => ['required', 'min:3', 'max:255'],
+            'last_name' => ['required'],
+            'image_url' => ['required'],
+            'description' => ['required', 'min:3', 'max:255'],
+            'born_date' => ['required'],
+            'died_date' => ['required'],
+        ]);
+        $attributes['user_id'] = auth()->id();
+        Author::create($attributes);
+        return redirect('/authors');
     }
 
     /**
@@ -56,7 +69,8 @@ class AuthorControler extends Controller
      */
     public function edit($id)
     {
-        //
+        $author =  Author::find($id);
+        return view('authors.edit', compact('author'));
     }
 
     /**
@@ -68,7 +82,25 @@ class AuthorControler extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $author = Author::findOrFail($id);
+
+        $attributes = $request->validate([
+            'name' => ['required'],
+            'last_name' => ['required'],
+            'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'description' => ['required', 'min:3', 'max:255'],
+            'born_date' => ['required'],
+            'died_date' => ['required'],
+        ]);
+
+        $imageName = time().'.'.$request->image_url->extension();  
+        $request->image_url->move(public_path('uploads'), $imageName);
+        
+        $attributes['image_url'] = '/uploads'.'/'.$imageName;
+
+        $author->update($attributes);
+
+        return redirect('/authors');
     }
 
     /**

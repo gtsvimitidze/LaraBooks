@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration
             $table->text('description');
             $table->date('release_date');
             $table->unsignedInteger('pages');
+            $table->unsignedInteger('author_id');
             $table->unsignedInteger('user_id');
             $table->timestamps();
         });

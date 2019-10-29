@@ -13,6 +13,17 @@
             </div>
 
             <div class="form-group row">
+                <label for="author_id" class="col-sm-2 col-form-label">Author</label>
+                <div class="col-sm-10">
+                    <select name="author_id" class="form-control">
+                        @foreach($authors as $author)
+                            <option value="{{ $author->id }}" {{($author->id == $book->author_id)?'selected':''}}>{{ $author->name }} {{ $author->last_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
                 <label for="image_url" class="col-sm-2 col-form-label">Image</label>
                 <div class="col-sm-10">
                     <input type="file" name="image_url" class="form-control-file" id="image_url">

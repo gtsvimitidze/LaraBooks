@@ -2,34 +2,27 @@
 
 @section('content')
     <div class="container">
-        <form action="/books" method="POST" enctype="multipart/form-data">
+        <form action="/authors" method="POST" enctype="multipart/form-data">
             @csrf
             {{-- @method('PATCH') --}}
             <div class="form-group row">
-                <label for="title" class="col-sm-2 col-form-label">Title</label>
-                <div class="col-sm-10">
-                <input type="text" class="form-control" id="title" name="title" placeholder="Title" value={{old('title')}}>
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" value={{old('name')}}>
+                </div>
+                <label for="last_name" class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last name" value={{old('last_name')}}>
                 </div>
             </div>
 
-            <input type="hidden" name="image_url" value="none">
+            <input type="hidden" name="image_url" value="nonne">
             {{-- <div class="form-group row">
                 <label for="image_url" class="col-sm-2 col-form-label">Image</label>
                 <div class="col-sm-10">
                     <input type="file" name="image_url" class="form-control-file" id="image_url">
                 </div>
             </div> --}}
-
-            <div class="form-group row">
-                <label for="author_id" class="col-sm-2 col-form-label">Author</label>
-                <div class="col-sm-10">
-                    <select name="author_id" class="form-control">
-                        @foreach($authors as $author)
-                            <option value="{{ $author->id }}">{{ $author->name }} {{ $author->last_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
 
             <div class="form-group row">
                 <label for="description" class="col-sm-2 col-form-label">description</label>
@@ -39,16 +32,13 @@
             </div>
             
             <div class="form-group row">
-                <label for="release_date" class="col-sm-2 col-form-label">Release Date</label>
-                <div class="col-sm-10">
-                <input type="date" class="form-control" id="release_date" name="release_date" placeholder="release_date" value={{old('release_date')}}>
+                <label for="born_date" class="col-sm-2 col-form-label">Date Born</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" id="born_date" name="born_date" placeholder="born_date" value={{old('born_date')}}>
                 </div>
-            </div>
-            
-            <div class="form-group row">
-                <label for="release_date" class="col-sm-2 col-form-label">Pages</label>
-                <div class="col-sm-10">
-                <input type="number" class="form-control" id="pages" name="pages" placeholder="pages" value={{old('pages')}}>
+                <label for="died_date" class="col-sm-2 col-form-label">Date Died</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" id="died_date" name="died_date" placeholder="died_date" value={{old('died_date')}}>
                 </div>
             </div>
 
@@ -58,7 +48,6 @@
                 </div>
             </div>
 
-            {{-- <input type="hidden" name="image_url" value="nonne"> --}}
         </form>
         
         @if($errors->any())

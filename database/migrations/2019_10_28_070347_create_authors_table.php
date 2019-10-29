@@ -17,6 +17,7 @@ class CreateAuthorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('last_name');
+            $table->string('image_url');
             $table->text('description');
             $table->date('born_date');
             $table->date('died_date');

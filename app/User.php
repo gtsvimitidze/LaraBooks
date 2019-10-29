@@ -38,10 +38,15 @@ class User extends Authenticatable
     ];
 
     public function profile() {
-        return $this->hasMany(User::class);
+        return $this->hasOne('App\Profile');
     }
     
-    public function addProfile($user) {
-        $this->profile()->create($user);
+    public function addProfile() {
+        return $this->profile()->create([
+            'name'=>'-',
+            'last_name'=>'-',
+            'avatar'=>'-',
+            'born_date'=>'1990-01-01',
+        ]);
     }    
 }

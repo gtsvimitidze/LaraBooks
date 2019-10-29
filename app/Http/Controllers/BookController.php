@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use App\Author;
 
 class BookController extends Controller
 {
@@ -25,7 +26,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        $authors = Author::all();
+        return view('books.create', compact('authors'));
     }
 
     /**
@@ -41,6 +43,7 @@ class BookController extends Controller
             'image_url' => ['required'],
             'description' => ['required', 'min:3', 'max:255'],
             'release_date' => ['required'],
+            'author_id' => ['required'],
             'pages' => ['required'],
         ]);
         $attributes['user_id'] = auth()->id();
@@ -68,8 +71,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $book =  Book::find($id);
-        return view('books.edit', compact('book'));
+        $authors = Author::all();
+        $book = Book::findOrFail($id);
+        return view('books.edit', compact('book','authors'));
     }
 
     /**
@@ -88,6 +92,7 @@ class BookController extends Controller
             'image_url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'description' => ['required', 'min:3', 'max:255'],
             'release_date' => ['required'],
+            'author_id' => ['required'],
             'pages' => ['required'],
         ]);
 
