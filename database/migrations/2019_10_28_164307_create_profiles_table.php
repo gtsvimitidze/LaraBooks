@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
             $table->string('last_name');
             $table->string('avatar');
             $table->date('born_date');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

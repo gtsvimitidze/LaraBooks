@@ -37,6 +37,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+    public static function boot() {
+        parent::boot();
+
+        static::created(function ($user) {
+            $user->addProfile();
+        });
+    }
+    
     public function profile() {
         return $this->hasOne('App\Profile');
     }
@@ -48,5 +57,5 @@ class User extends Authenticatable
             'avatar'=>'-',
             'born_date'=>'1990-01-01',
         ]);
-    }    
+    }
 }
