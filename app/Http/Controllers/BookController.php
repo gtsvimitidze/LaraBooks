@@ -16,7 +16,7 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //
     {
         $books = Book::all();
         return view('books.index', compact('books'));
