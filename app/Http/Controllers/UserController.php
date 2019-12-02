@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('auth.index')->Middleware('auth');
+        return view('users.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -34,7 +34,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('users.store');
     }
 
     /**
@@ -45,7 +45,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('users.show');
     }
 
     /**
@@ -56,7 +56,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('users.edit');
     }
 
     /**
@@ -68,7 +68,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return view('users.update');
     }
 
     /**
@@ -79,6 +79,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return view('users.index');
     }
 }

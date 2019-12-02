@@ -51,11 +51,6 @@ class User extends Authenticatable
     }
     
     public function addProfile() {
-        return $this->profile()->create([
-            'name'=>'-',
-            'last_name'=>'-',
-            'avatar'=>'-',
-            'born_date'=>'1990-01-01',
-        ]);
+        return $this->profile()->create();
     }
 }

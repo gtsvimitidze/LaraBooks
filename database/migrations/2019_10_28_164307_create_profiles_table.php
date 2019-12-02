@@ -14,14 +14,25 @@ class CreateProfilesTable extends Migration
     public function up()
     {
         Schema::create('profiles', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('last_name');
-            $table->string('avatar');
-            $table->date('born_date');
-            $table->unsignedInteger('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->bigIncrements('id')->nullable();
+            $table->string('avatar')->nullable();
+            $table->date('birthdate')->nullable();
+
+            $table->unsignedBigInteger('role')->nullable();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
+
+        // ----- Default User ----- //
+        $user = new App\User();
+        $user->name = 'George Tsvimitidze';
+        $user->email = 'gtsvimitidze@gmail.com';
+        $user->password = Hash::make('321321');
+        $user->save();
+        // ------------------------- //
     }
 
     /**

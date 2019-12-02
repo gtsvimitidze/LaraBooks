@@ -13,4 +13,9 @@ class Profile extends Model
     {
         return $this->belongsTo('App\User');
     }
+    
+    public static function addProfile($user_id) {
+
+        return Profile::create(['user_id' => $user_id]);
+    }
 }

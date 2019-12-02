@@ -15,13 +15,18 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('image_url');
-            $table->text('description');
-            $table->date('release_date');
-            $table->unsignedInteger('pages');
-            $table->unsignedInteger('author_id');
-            $table->unsignedInteger('user_id');
+            $table->string('title')->nullable();
+            $table->string('image_url')->nullable();
+            $table->text('description')->nullable();
+            $table->date('release_date')->nullable();
+            $table->unsignedInteger('pages')->nullable();
+            
+            $table->unsignedBigInteger('author_id')->nullable();
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+            
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

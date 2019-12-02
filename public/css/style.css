@@ -1,0 +1,220 @@
+body {
+    min-width: 1000pt !important;
+}
+
+.containerEx {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    background-color: #fff !important;
+    padding: 5pt;
+    /* border-radius: 5pt; */
+    border-radius: 1pt;
+    border: 1pt solid #d9dadb;
+}
+.progressEx {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+}
+.padderLR {
+    padding: 0pt 1rem 0pt 1rem;
+}
+
+.view-title {
+    color: grey;
+}
+.view-content {
+    font-size: 1rem;
+    padding: 5px;
+}
+
+.showOnHover {
+    opacity: 0.0;
+}
+.showOnHover:hover {
+    opacity: 1.0;
+}
+
+.progressEx {
+    font-size: 1rem;
+    overflow: hidden;
+    border: 1px solid transparent;
+    border-top-right-radius: 25pt;
+    border-bottom-right-radius: 25pt;
+}
+.stageEx {
+    border: 1pt solid #d4dadf;
+    /* padding: 5pt; */
+    overflow: hidden;
+    text-shadow: 0 0.125rem 0.25rem #000 !important;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25) !important;
+}
+.stageEx:hover {
+    border-top-right-radius: 25pt;
+    border-bottom-right-radius: 25pt;
+    opacity: 0.7;
+}
+
+.stage-1 { background: #6cb2eb; }
+.stage-2 { background: #6c757d; }
+.stage-3 { background: #ffed4a; }
+.stage-4 { background: #38c172; }
+.stage-0 { background: #e3342f; }
+
+.user-key {
+    font-weight: bold;
+    color: grey;
+}
+
+/* .user-image {
+    height: 100%;
+    width: 100%;
+    background-size: 100% auto;
+    background-position: center; 
+    margin: 0 auto;
+    border: 1px solid rgba(158, 158, 158, 0.2);
+    border-radius: 5px
+} */
+
+.newNumbr {
+    color: white;
+    background: red;
+    font-weight: bold;
+    padding: 0pt 1pt 0pt 1pt;
+    border-radius: 5px;
+    border: 1pt solid red;
+}
+
+.notification {
+    padding: 5pt;
+}
+.notification:hover {
+    background: #f8fafc;
+}
+
+.notification-unread {
+    background: rgba(0, 0, 0, 0.075);
+    /* border-radius: 3pt; */
+    font-weight: bold;
+    border-bottom: 1px solid #f8fafc;
+}
+
+
+.profile-cover-parent {
+    overflow: hidden;
+    height: 150pt;
+}
+.profile-cover, .profile-img {
+    /* background: url('/uploads/gorgia-logo.PNG'); */
+    background: url('/public/uploads/gorgia-logo.PNG');
+}
+.profile-cover {
+    background-size: cover;
+    height: 55%;
+    background: #1b4b72;
+    border-radius: 1pt;
+    padding: 1rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25) !important;
+}
+.profile-img {
+    background-size: contain;
+    height: 100pt;
+    /* min-width: 100pt; */
+    border-radius: 5pt;
+    width: auto;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3pt solid white;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25) !important;
+}
+.profile-img:hover {
+    /* background: green; */
+}
+
+.table > tbody > tr td:first-child {
+    font-weight: bold;
+}
+.table > tbody > tr td {
+    /* border: 0px; */
+    /* color: #343a40; */
+}
+
+.report-header {
+
+}
+
+.imagess {
+    padding: 10pt;
+    background:#e9ecef;
+    overflow:hidden;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25) !important;
+    border: 1pt solid #d9dadb;
+}
+
+/* footer */
+.footer-my {
+    background-color: #343a40;
+    color: grey;
+}
+.footer-my a {
+    color: white
+}
+.footer-my img {
+    border-radius: 3pt;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25) !important;
+}
+.footer-my .footer-copyright {
+    background: #212529a6;
+}
+
+
+body::-webkit-scrollbar, .scroller::-webkit-scrollbar {
+    width: 5pt;
+}
+body::-webkit-scrollbar-track, .scroller::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+body::-webkit-scrollbar-thumb, .scroller::-webkit-scrollbar-thumb {
+  background-color: grey;
+  outline: 1px solid #f8fafc;
+  /* border-radius: 100%; */
+}
+
+.header-logo {
+    color: white;
+    padding: 5pt;
+    border-radius: 25pt;
+}
+
+.form-controller {
+    background: #272c30;
+    border: 1pt solid #272c30;
+    color: grey;
+}
+
+/* boooks */
+.index-book-div {
+    border: 1pt solid #e9ecef;
+    padding: 5pt;
+    overflow: hidden;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    /* height: 250pt; */
+    color: #343a40;
+}
+.index-book-div:hover { opacity: 0.5; }
+
+.index-book-img {
+    width: 100%;
+    height: 150pt;
+    /* border: 1pt solid #e9ecef; */
+    background: #e9ecef;
+}
+.index-book-divTitle {
+    font-weight: bold;
+    overflow: hidden;
+}
+.index-book-divDescription {
+    height: 50pt;
+    overflow: hidden;
+}

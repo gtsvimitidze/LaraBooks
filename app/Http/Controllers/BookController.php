@@ -18,7 +18,7 @@ class BookController extends Controller
      */
     public function index() //
     {
-        $books = Book::all();
+        $books = Book::where([])->orderByRaw('created_at DESC')->paginate(12);
         return view('books.index', compact('books'));
     }
 
@@ -43,13 +43,13 @@ class BookController extends Controller
     {
         $attributes = request()->validate([
             'title' => ['required', 'min:3', 'max:255'],
-            'image_url' => ['required'],
+            'image_url' => [''],
             'description' => ['required', 'min:3', 'max:255'],
-            'release_date' => ['required'],
-            'author_id' => ['required'],
-            'pages' => ['required'],
+            'release_date' => [''],
+            'author_id' => [''],
+            'pages' => [''],
         ]);
-        $attributes['user_id'] = auth()->id();
+        $attributes['created_by'] = auth()->id();
         Book::create($attributes);
         return redirect('/books');
     }
